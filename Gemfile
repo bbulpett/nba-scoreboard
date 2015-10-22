@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# Use Mechanize to scrape web sites. Fun fact: Originally mechanize was written as a Perl module by Andy Lester in 2002.
+gem 'mechanize'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
