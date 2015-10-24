@@ -18,8 +18,7 @@ class ApplicationController < ActionController::Base
   	require 'open-uri'
   	doc = Nokogiri::HTML(open("http://sports.espn.go.com/nba/bottomline/scores"))
 
-  	# Parse for headlines and create array
-  	@games = doc
+  	@games = doc.xpath('//p')
   	# @gamesArray = []
   	# headlines.each do |h|
   	# 	title = h.css('h2.titlebox>a').text
