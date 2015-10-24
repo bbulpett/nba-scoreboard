@@ -1,2 +1,8 @@
 <h1>NBA SCORES!</h1>
-<p><%= @games %></p>
+
+<% @gamesArray.each do |game| %>
+	<table>
+		<tr><th>AWAY</th><th>HOME</th></tr>
+		<tr><td><%= game.awayTeam %></td><td><%= game.homeTeam %></td></tr>
+	</table>
+<% end %>
