@@ -16,9 +16,11 @@ class ApplicationController < ActionController::Base
   # Pull the site
   def scrape_scoreboard
   	require 'open-uri'
-  	doc = Nokogiri::HTML(open("http://sports.espn.go.com/nba/bottomline/scores"))
+  	doc = Nokogiri::HTML(open("http://www.nba.com/gameline/20151023/"))
 
-  	@games = doc.xpath('//p')
+  	# fragment = Nokogiri::HTML.fragment(doc, encoding = nil)
+  	# @games = doc.xpath('//?')
+  	@games = doc.css("div.nbaModTopInfo")
   	# @gamesArray = []
   	# headlines.each do |h|
   	# 	title = h.css('h2.titlebox>a').text
