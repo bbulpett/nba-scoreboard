@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   @date = Date.today
-# Define the Game object
+  # Define the Game object
   class Game
   	def initialize(homeTeam, awayTeam)
   		@homeTeam = homeTeam
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   	games.each do |g|
   		homeTeam = g.css("h5.hometeam").text
   		awayTeam = g.css("h5.awayteam").text
-  		gamesArray = Game.new(homeTeam, awayTeam)
+  		@gamesArray << Game.new(homeTeam, awayTeam)
   	end
 
   	render template: 'scrape_scoreboard'
