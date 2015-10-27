@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  @date = Date.today
+  @date = Date.today.strftime("%Y%m%d")
   # Define the Game object
   class Game
   	def initialize(homeTeam, awayTeam)
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   # Pull the site
   def scrape_scoreboard
   	require 'open-uri'
-  	doc = Nokogiri::HTML(open("http://www.nba.com/gameline/20151023/"))
+  	doc = Nokogiri::HTML(open("http://www.nba.com/gameline/#{@date}/"))
 
   	games = doc.css(".nbaModTopInfo")
   	@gamesArray = []
